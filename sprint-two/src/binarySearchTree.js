@@ -5,47 +5,64 @@ class BinarySearchTree{
   	this.left = null;
 	}
 
-  innerInsert(value, node){
-		if (node === null) {
-			node = new BinarySearchTree(value);
-		}
-		else if (node.value > value) {
-			this.innerInsert(value, node.right);
-		}
-		else if (node.value < value){
-		  innerInsert(value, node.left);
-		}
-		return;
-	};
-
 	insert(value){
-     if (value < this.value) {
+  if (value < this.value) {
     if (this.left === null) {
       this.left = new BinarySearchTree(value);
     } else {
       this.left.insert(value);
     }
   } else if (value > this.value) {
-    if (this.right === null) {
-      this.right = new BinarySearchTree(value);
-    } else {
+      if (this.right === null) {
+        this.right = new BinarySearchTree(value);
+      } else {
       this.right.insert(value);
+      }
     }
-  }
 	};
   
-  contains(value){
+  contains(value) {
+    console.log(this.value)
+    var isFound = false;
+    if (this.value === value) {
+      isFound = true;
+    }
 
+    if (this.value < value){
+      if (this.right !== null) {
+        if (this.right.value === value) {
+          return true
+        }
+        this.right.contains(value)
+      }
+    }
+
+    if (this.value > value){
+      if (this.left !== null) {
+        if (this.left.value === value) {
+          return true
+        }
+        this.left.contains(value)
+      }
+    }
+
+    return isFound;
   };
-  depthFirstLog(){
 
+  depthFirstLog(callback){
+    callback(this.value); // function (element) { var arr = []; return arr.push(element) }
+
+    if (this.left) {
+      this.left.depthFirstLog(callback);
+    }
+
+    if (this.right) {
+      this.right.depthFirstLog(callback);
+    }
   };
-
-	
-
-
 } 
-var BST = new BinarySearchTree(10);
+
+var BST = new BinarySearchTree();
 
 
 
