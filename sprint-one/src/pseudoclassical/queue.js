@@ -7,20 +7,20 @@ var Queue = function() {
 };
 
 Queue.prototype.enqueue = function(value) {
-   this.rear++;
-   this.storage[this.rear] = value;
-  };
+  this.rear++;
+  this.storage[this.rear] = value;
+};
 
-  Queue.prototype.dequeue = function() {
-    if (this.front !== this.rear) {
-      this.front++;
-      return this.storage[this.front];
-    }
-  };
+Queue.prototype.dequeue = function() {
+  if (this.front !== this.rear) {
+    this.front++;
+    return this.storage[this.front];
+  }
+};
 
-  Queue.prototype.size = function() {
-    return this.rear - this.front;
-  };
+Queue.prototype.size = function() {
+  return this.rear - this.front;
+};
 
 
 var queue = new Queue();

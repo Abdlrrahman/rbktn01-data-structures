@@ -4,21 +4,21 @@ var Stack = function() {
   this.index = -1;
   this.storage = {};
 };
+
 Stack.prototype.push = function(value){
 	this.index++;
   return this.storage[this.index] = value;
-  }
+}
 
 Stack.prototype.pop = function(){
 	if (this.index !== -1) {
-  		this.index--;
-   return this.storage[this.index + 1];
+  	this.index--;
+    return this.storage[this.index + 1];
   } 
 } 	
 
 Stack.prototype.size = function(){
-   return this.index + 1;
- }
-
+  return this.index + 1;
+}
 
 var stack = new Stack();

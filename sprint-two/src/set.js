@@ -7,14 +7,13 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-	 this._storage[item] = true;
-
+	this._storage[item] = true;
 };
 
 setPrototype.contains = function(item) {
+	// !this._storage[item] this is converting it to a Boolean 
+	// the other ! is correcting it 
 	return !!this._storage[item];
-	//!this._storage[item]; this is converting it to a Boolean 
-	//the other ! is correcting it 
 };
 
 setPrototype.remove = function(item) {

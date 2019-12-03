@@ -5,31 +5,32 @@ var LinkedList = function() {
 
   list.addToTail = function(value) {
     var node = new Node(value);
-    if (list.head === null){
+    if (list.head === null) {
       list.head = node;
-    }else{
+    } else {
       list.tail.next = node
     }
+
     list.tail = node;
   };
 
   list.removeHead = function() {
-    if(list.head !== null){
-      var p = list.head;
+    if (list.head !== null) {
+      var pointer = list.head;
       list.head = list.head.next;
-      return p.value;
+      return pointer.value;
     }
   };
 
   list.contains = function(target) {
-    var p = list.head;
-    while(p !== null){
-      if(p.value === target){
+    var pointer = list.head;
+    while (pointer !== null) {
+      if (pointer.value === target) {
         return true;
-
       }
-      p = p.next;
+      pointer = pointer.next;
     }
+
     return false;
   };
 
